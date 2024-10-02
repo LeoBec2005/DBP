@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulario CV</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #74b9ff, #a29bfe);
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            color: #ffffff;
+            font-size: 36px;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        form {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        form:hover {
+            transform: translateY(-5px);
+        }
+
+        label {
+            display: block;
+            margin-top: 20px;
+            color: #2d3436;
+            font-weight: bold;
+        }
+
+        input[type="text"], input[type="date"], select, textarea {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 10px 0;
+            border: 2px solid #dfe6e9;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+            background-color: #f9f9f9;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="text"]:focus, input[type="date"]:focus, select:focus, textarea:focus {
+            border-color: #74b9ff;
+            outline: none;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        button[type="button"], button[type="submit"] {
+            background-color: #0984e3;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        button[type="button"]:hover, button[type="submit"]:hover {
+            background-color: #74b9ff;
+            transform: translateY(-3px);
+        }
+
+        button[type="button"]:focus, button[type="submit"]:focus {
+            outline: none;
+        }
+
+        .section-title {
+            font-size: 20px;
+            margin-top: 20px;
+            color: #0984e3;
+            border-bottom: 2px solid #dfe6e9;
+            padding-bottom: 8px;
+        }
+
+        .dynamic-section {
+            background-color: #ecf0f1;
+            padding: 15px;
+            border: 1px solid #dcdde1;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .dynamic-section div {
+            margin-bottom: 15px;
+        }
+
+        .dynamic-section input[type="text"] {
+            width: calc(100% - 90px);
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        .dynamic-section button {
+            width: 70px;
+            background-color: #ff7675;
+            margin: 0;
+        }
+
+        .dynamic-section button:hover {
+            background-color: #e17055;
+        }
+
+        .btn-add {
+            float: right;
+            margin-top: -40px;
+            margin-bottom: 10px;
+            background-color: #00b894;
+        }
+
+        .btn-add:hover {
+            background-color: #55efc4;
+        }
+    </style>
+    <script>
+        function addField(sectionId, fieldName, placeholderText) {
+            var section = document.getElementById(sectionId);
+            var div = document.createElement("div");
+            div.innerHTML = `<input type='text' name='${fieldName}[]' placeholder='${placeholderText}' required>
+                             <button type='button' onclick='removeField(this)'>Eliminar</button>`;
+            section.appendChild(div);
+        }
+
+        function removeField(button) {
+            button.parentElement.remove();
+        }
+    </script>
+</head>
+<body>
+
+<h1>Formulario CV</h1>
+    <form action="result.php" method="POST">
+        <label for="name">Ingrese su nombre y apellido: </label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="bth_date">Ingrese su fecha de nacimiento: </label>
+        <input type="date" id="bth_date" name="bth_date" required>
+
+        <label for="occupation">Ingrese su ocupación: </label>
+        <input type="text" id="occupation" name="occupation" required>
+
+        <label for="contact">Ingrese su contacto: </label>
+        <input type="text" id="contact" name="contact" required>
+
+        <label for="nacionality">Ingrese su nacionalidad: </label>
+        <select id="nacionality" name="nacionality" required>
+            <option value="">--Seleccione un país--</option>
+            <option value="argentina">Argentina</option>
+            <option value="australia">Australia</option>
+            <option value="brasil">Brasil</option>
+            <option value="canada">Canadá</option>
+            <option value="china">China</option>
+            <option value="francia">Francia</option>
+            <option value="alemania">Alemania</option>
+            <option value="india">India</option>
+            <option value="italia">Italia</option>
+            <option value="japon">Japón</option>
+            <option value="mexico">México</option>
+            <option value="peru">Perú</option>
+            <option value="rusia">Rusia</option>
+            <option value="sudafrica">Sudáfrica</option>
+            <option value="reino_unido">Reino Unido</option>
+            <option value="estados_unidos">Estados Unidos</option>
+            <option value="espana">España</option>
+        </select>
+
+        <label for="programming_lng">Ingrese los lenguajes de programacion que conoce: </label><br>
+                <input type="checkbox" name="programming_lng[]" value="php"> PHP<br>
+                <input type="checkbox" name="programming_lng[]" value="javascript"> JavaScript<br>
+                <input type="checkbox" name="programming_lng[]" value="python"> Python<br>
+                <input type="checkbox" name="programming_lng[]" value="java"> Java<br>
+                <input type="checkbox" name="programming_lng[]" value="csharp"> C#<br>
+                <input type="checkbox" name="programming_lng[]" value="ruby"> Ruby<br>
+        </select><br><br>
+
+        <label for="profile">Ingrese información adicional para su perfil: </label><br>
+        <textarea id="profile" name="profile" rows="4" cols="50" required></textarea><br><br>
+
+        <label class="section-title">Experiencia Laboral: </label><br>
+        <div id="experience-section" class="dynamic-section"></div>
+        <button type="button" class="btn-add" onclick="addField('experience-section', 'experience', 'Ingrese su experiencia')">Añadir Experiencia</button>
+
+        <label class="section-title">Formación Académica: </label><br>
+        <div id="studies-section" class="dynamic-section"></div>
+        <button type="button" class="btn-add" onclick="addField('studies-section', 'studies', 'Ingrese su formación')">Añadir Formación</button>
+
+        <label class="section-title">Idiomas: </label><br>
+        <div id="languages-section" class="dynamic-section"></div>
+        <button type="button" class="btn-add" onclick="addField('languages-section', 'languages', 'Ingrese un idioma')">Añadir Idioma</button>
+
+        <label class="section-title">Aptitudes y Habilidades: </label><br>
+        <div id="skills-section" class="dynamic-section"></div>
+        <button type="button" class="btn-add" onclick="addField('skills-section', 'skills', 'Ingrese una habilidad o aptitud')">Añadir Habilidad/Aptitud</button>
+
+        <button type="submit">Ver CV</button>
+    </form>
+</body>
+</html>

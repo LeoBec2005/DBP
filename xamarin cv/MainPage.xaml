@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CurriculumVitaeApp.MainPage"
+             Title="Currículum Vitae">
+    <ScrollView>
+        <StackLayout Padding="20" Spacing="10">
+            <Frame CornerRadius="100" WidthRequest="150" HeightRequest="150" HorizontalOptions="Center">
+                <Image Source="profile_photo.png" Aspect="AspectFill" />
+            </Frame>
+
+            <Label Text="nombre" FontSize="24" FontAttributes="Bold" HorizontalOptions="Center" />
+            <Label Text="profesión" FontSize="18" TextColor="Gray" HorizontalOptions="Center" />
+
+            <Label Text="Sobre mí" FontSize="20" FontAttributes="Bold" />
+            <Label Text="descripción breve" />
+
+            <Label Text="Experiencia Profesional" FontSize="20" FontAttributes="Bold" />
+            <StackLayout Padding="10">
+                <Label Text="• trabajo 1" FontSize="16" />
+                <Label Text="• trabajo 2" FontSize="16" />
+            </StackLayout>
+
+            <Label Text="Educación" FontSize="20" FontAttributes="Bold" />
+            <Label Text="información educativa" />
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

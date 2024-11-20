@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CurriculumVitaeApp.CvPage"
+             Title="Currículum Vitae">
+    <ScrollView>
+        <StackLayout Padding="20" Spacing="10">
+            <Label Text="nombre" FontSize="24" FontAttributes="Bold" x:Name="NameLabel" />
+            <Label Text="profesión" FontSize="18" TextColor="Gray" x:Name="ProfessionLabel" />
+
+            <Label Text="Sobre mí" FontSize="20" FontAttributes="Bold" />
+            <Label Text="descripción breve" x:Name="DescriptionLabel" />
+
+            <Label Text="Experiencia Profesional" FontSize="20" FontAttributes="Bold" />
+            <Label Text="experiencia laboral" x:Name="ExperienceLabel" />
+
+            <Label Text="Educación" FontSize="20" FontAttributes="Bold" />
+            <Label Text="educación" x:Name="EducationLabel" />
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
